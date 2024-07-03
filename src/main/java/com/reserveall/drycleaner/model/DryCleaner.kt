@@ -25,20 +25,23 @@ data class DryCleaner @JvmOverloads constructor(
     val updatedDate: LocalDateTime? = null,
 
     @Column(name = "name")
-    val name: String?,
+    var name: String?,
 
     @Column(name = "location")
-    val location: String?,
+    var location: String?,
 
     @Column(name = "description")
-    val description: String?,
+    var description: String?,
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "dryCleaner")
-    val services: List<Service>? ,
+    var services: List<Service>? ,
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "dryCleaner")
     val images: List<Image>? = ArrayList(),
 
     @OneToOne
     val user: User?
-)
+){
+
+}
+

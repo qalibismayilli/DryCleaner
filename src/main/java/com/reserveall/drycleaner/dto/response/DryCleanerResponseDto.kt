@@ -9,5 +9,5 @@ data class DryCleanerResponseDto(
     val description: String?,
     val services: List<ServiceDto>?,
     val imageUrls: List<String>?,
-    val user: UserResponseDto?
+    val userId: String?
 )
