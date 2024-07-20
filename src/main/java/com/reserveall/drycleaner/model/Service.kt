@@ -24,6 +24,7 @@ data class Service @JvmOverloads constructor(
     val updatedDate: LocalDateTime? = null,
 
     @Column(name = "service_name")
+    @Enumerated(EnumType.STRING)
     val serviceName: ServiceName?,
 
     @Column(name = "price")
@@ -33,5 +34,6 @@ data class Service @JvmOverloads constructor(
     val discountRate: Int? = 0 ,
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "dry_cleaner_id", referencedColumnName = "id")
     val dryCleaner: DryCleaner? = null
 )

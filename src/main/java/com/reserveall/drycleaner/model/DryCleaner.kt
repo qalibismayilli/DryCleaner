@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 import java.util.ArrayList
 
 @Entity
-@Table(name = "drycleaners")
+@Table(name = "dry_cleaners")
 data class DryCleaner @JvmOverloads constructor(
     @Id
     @GeneratedValue(generator = "UUID")
@@ -25,21 +25,22 @@ data class DryCleaner @JvmOverloads constructor(
     val updatedDate: LocalDateTime? = null,
 
     @Column(name = "name")
-    var name: String?,
+    val dryCleanerName: String?,
 
     @Column(name = "location")
-    var location: String?,
+    val location: String?,
 
     @Column(name = "description")
-    var description: String?,
+    val description: String?,
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "dryCleaner")
-    var services: List<Service>? ,
+    val services: List<Service>?,
 
     @OneToMany(cascade = [CascadeType.ALL], mappedBy = "dryCleaner")
     val images: List<Image>? = ArrayList(),
 
-    @OneToOne
+    @OneToOne(cascade = [CascadeType.ALL])
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     val user: User?
 ){
 

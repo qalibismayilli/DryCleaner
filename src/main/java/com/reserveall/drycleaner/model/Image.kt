@@ -27,6 +27,6 @@ data class Image(
     val imageUrl: String?,
 
     @ManyToOne
-    @JoinColumn(name = "dry_cleaner_id")
+    @JoinColumn(name = "dry_cleaner_id", referencedColumnName = "id")
     val dryCleaner: DryCleaner?
 )
