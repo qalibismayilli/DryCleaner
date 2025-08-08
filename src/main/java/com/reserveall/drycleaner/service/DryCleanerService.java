@@ -1,9 +1,9 @@
 package com.reserveall.drycleaner.service;
 
-import com.reserveall.drycleaner.dto.request.DryCleanerUpdateRequestDto;
-import com.reserveall.drycleaner.dto.response.ServiceResponseDto;
-import com.reserveall.drycleaner.dto.request.DryCleanerRequestDto;
-import com.reserveall.drycleaner.dto.response.DryCleanerResponseDto;
+import com.reserveall.drycleaner.dto.dry_cleaner.request.DryCleanerUpdateRequestDto;
+import com.reserveall.drycleaner.dto.service.response.ServiceResponseDto;
+import com.reserveall.drycleaner.dto.dry_cleaner.request.DryCleanerRequestDto;
+import com.reserveall.drycleaner.dto.dry_cleaner.response.DryCleanerResponseDto;
 import com.reserveall.drycleaner.model.DryCleaner;
 import com.reserveall.drycleaner.model.ServiceName;
 import com.reserveall.drycleaner.repository.DryCleanerRepository;

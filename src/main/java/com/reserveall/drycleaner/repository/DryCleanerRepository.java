@@ -1,8 +1,6 @@
 package com.reserveall.drycleaner.repository;
 
-import com.reserveall.drycleaner.dto.response.ServiceResponseDto;
 import com.reserveall.drycleaner.model.DryCleaner;
-import com.reserveall.drycleaner.model.ServiceName;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -24,8 +22,10 @@ public interface DryCleanerRepository extends JpaRepository<DryCleaner, String> 
 
     Optional<List<DryCleaner>> findDryCleanersByDryCleanerName(String name);
 
+
+    //TODO:
     @Query("select dc.id, dc.createdDate, dc.updatedDate, dc.dryCleanerName," +
-            "dc.location, dc.description, dc.services, dc.images, dc.user from DryCleaner dc where ")
+            "dc.location, dc.description, dc.services, dc.images, dc.user from DryCleaner dc where 1=1")
     Optional<List<DryCleaner>>  findDryCleanersByService(String serviceName);
 
 }

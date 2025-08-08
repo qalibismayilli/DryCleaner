@@ -1,4 +1,4 @@
-package com.reserveall.drycleaner.dto.request
+package com.reserveall.drycleaner.dto.dry_cleaner.request
 
 data class DryCleanerUpdateRequestDto(
     val name: String,

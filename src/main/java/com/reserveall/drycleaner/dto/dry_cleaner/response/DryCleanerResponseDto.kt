@@ -1,4 +1,6 @@
-package com.reserveall.drycleaner.dto.response
+package com.reserveall.drycleaner.dto.dry_cleaner.response
+
+import com.reserveall.drycleaner.dto.service.response.ServiceResponseDto
 
 data class DryCleanerResponseDto(
     val id: String?,

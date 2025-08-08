@@ -1,4 +1,4 @@
-package com.reserveall.drycleaner.dto.response
+package com.reserveall.drycleaner.dto.user.response
 
 import com.reserveall.drycleaner.model.Role
 

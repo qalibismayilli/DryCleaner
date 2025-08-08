@@ -1,14 +1,11 @@
-package com.reserveall.drycleaner.dto.response
+package com.reserveall.drycleaner.dto.service.request
 
 import com.reserveall.drycleaner.model.ServiceName
 
-data class ServiceResponseDto(
-
+data class ServiceRequestDto(
     val id: String?,
 
     val serviceName: ServiceName?,
 
     val price: Int?,
-
-    val discountRate: Int?
 )

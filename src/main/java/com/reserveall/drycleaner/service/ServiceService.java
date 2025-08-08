@@ -1,7 +1,5 @@
 package com.reserveall.drycleaner.service;
 
-import com.reserveall.drycleaner.dto.response.ServiceResponseDto;
-import com.reserveall.drycleaner.model.DryCleaner;
 import com.reserveall.drycleaner.model.ServiceName;
 import com.reserveall.drycleaner.repository.ServiceRepository;
 import org.springframework.stereotype.Service;

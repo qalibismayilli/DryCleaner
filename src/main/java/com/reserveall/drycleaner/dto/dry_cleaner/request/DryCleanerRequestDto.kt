@@ -1,6 +1,6 @@
-package com.reserveall.drycleaner.dto.request
+package com.reserveall.drycleaner.dto.dry_cleaner.request
 
-import com.reserveall.drycleaner.dto.response.ServiceResponseDto
+import com.reserveall.drycleaner.dto.service.request.ServiceRequestDto
 
 
 data class DryCleanerRequestDto(
