@@ -32,7 +32,7 @@ public class AuthService {
                     new UsernamePasswordAuthenticationToken(request.getUsername(),request.getPassword()));
 
             return new TokenResponse(tokenGenerator.generateToken(auth),
-                    userService.convertToUser(userService.findUserByUsername(request.getUsername())));
+                    userService.convertToResponse(userService.findUserByUsername(request.getUsername())));
         }catch (Exception ex){
             throw new BadCredentialsException(ex.getMessage());
         }
@@ -41,6 +41,6 @@ public class AuthService {
     public UserResponseDto getLoggedInUser(){
         String username = ((UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal())
                 .getUsername();
-        return userService.convertToUser(userService.findUserByUsername(username));
+        return userService.convertToResponse(userService.findUserByUsername(username));
     }
 }

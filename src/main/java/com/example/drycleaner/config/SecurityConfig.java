@@ -48,14 +48,14 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests( auth->{
-                    auth.requestMatchers("/api/v1/project/admin/**",
+                    auth.requestMatchers("/api/v1/project/getAllProjects", "/api/v1/project/getProjectsByName",
+                            "/api/v1/image/getImagesByProject","/api/v1/clientMessageController/createMessage",
+                            "/api/v1/auth/login").permitAll()
+                            .requestMatchers("/api/v1/project/admin/**",
                                     "/api/v1/image/admin/**" ,
                                     "/api/v1/clientMessageController/admin/**",
                                     "/api/v1/user/createUser")
                             .hasAuthority("ADMIN")
-                            .requestMatchers("/api/v1/project/getAllProjects", "/api/v1/project/getProjectsByName",
-                                    "/api/v1/image/getImagesByProject","/api/v1/clientMessageController/createMessage",
-                                    "/api/auth/login").permitAll()
                             .anyRequest().authenticated();
                 })
                 .formLogin(fl->fl.disable())
@@ -70,11 +70,11 @@ public class SecurityConfig {
     }
 
     //    this bean deactivate securityFilterChain for login
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer(){
-        return(web -> web.ignoring()
-                .requestMatchers("/api/auth/login"));
-    }
+//    @Bean
+//    public WebSecurityCustomizer webSecurityCustomizer(){
+//        return(web -> web.ignoring()
+//                .requestMatchers("/api/v1/auth/login"));
+//    }
 
     @Bean
     public WebMvcConfigurer corsConfigurer(){
