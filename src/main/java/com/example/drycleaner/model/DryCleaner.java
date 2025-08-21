@@ -4,11 +4,12 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -19,10 +20,10 @@ import java.util.List;
 @NoArgsConstructor
 public class DryCleaner {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "dry_cleaner_id")
-    String dryCleanerId;
+    @GeneratedValue
+    @UuidGenerator
+    @Column(name = "dry_cleaner_id", columnDefinition = "BINARY(16)", updatable = false, nullable = false)
+    UUID dryCleanerId;
 
     @Column(name = "created_date")
     @CreationTimestamp
@@ -36,8 +37,6 @@ public class DryCleaner {
     String dryCleanerName;
 
     String location;
-
-    @Column(name = "description")
     String description;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "dryCleaner")

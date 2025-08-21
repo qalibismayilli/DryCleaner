@@ -6,8 +6,10 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -18,10 +20,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue
+    @UuidGenerator
     @Column(name = "user_id", nullable = false, updatable = false)
-    String userId;
+    UUID userId;
 
     @Column(name = "created_date")
     @CreationTimestamp

@@ -1,6 +1,5 @@
 package com.example.drycleaner.service;
 
-import com.example.drycleaner.model.ServiceName;
 import com.example.drycleaner.repository.ServiceRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ public class ServiceService {
     }
 
 
-    protected List<com.example.drycleaner.model.Service> findServicesByName(ServiceName serviceName) {
+    protected List<com.example.drycleaner.model.Service> findServicesByName(String serviceName) {
          return serviceRepository.findServicesByServiceName(serviceName)
                 .orElseThrow();
     }

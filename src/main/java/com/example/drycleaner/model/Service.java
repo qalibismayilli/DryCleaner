@@ -6,8 +6,10 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -18,10 +20,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class Service {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue
+    @UuidGenerator
     @Column(name = "service_id")
-    String serviceId;
+    UUID serviceId;
 
     @Column(name = "created_date")
     @CreationTimestamp
@@ -33,12 +35,9 @@ public class Service {
 
     @Column(name = "service_name")
     @Enumerated(EnumType.STRING)
-    ServiceName serviceName;
+    String serviceName;
 
-    @Column(name = "price")
     Integer price;
-
-    @Column(name = "discount")
     Integer discount;
 
     @ManyToOne(fetch = FetchType.LAZY)

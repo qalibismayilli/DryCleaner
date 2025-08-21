@@ -1,12 +1,10 @@
 package com.example.drycleaner.dto.service.response
 
-import com.example.drycleaner.model.ServiceName
-
 data class ServiceResponseDto(
 
-    val id: String?,
+    val id: String,
 
-    val serviceName: ServiceName?,
+    val serviceName: String?,
 
     val price: Int?,
 

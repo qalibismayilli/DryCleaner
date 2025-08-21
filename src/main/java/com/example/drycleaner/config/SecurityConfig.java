@@ -48,13 +48,11 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests( auth->{
-                    auth.requestMatchers("/api/v1/project/getAllProjects", "/api/v1/project/getProjectsByName",
-                            "/api/v1/image/getImagesByProject","/api/v1/clientMessageController/createMessage",
-                            "/api/v1/auth/login").permitAll()
-                            .requestMatchers("/api/v1/project/admin/**",
-                                    "/api/v1/image/admin/**" ,
-                                    "/api/v1/clientMessageController/admin/**",
-                                    "/api/v1/user/createUser")
+                    auth.requestMatchers("/v1/auth/login").permitAll()
+                            .requestMatchers("/v1/project/admin/**",
+                                    "/v1/image/admin/**" ,
+                                    "/v1/clientMessageController/admin/**",
+                                    "/v1/user/createUser")
                             .hasAuthority("ADMIN")
                             .anyRequest().authenticated();
                 })

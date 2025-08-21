@@ -7,8 +7,10 @@ import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "images")
@@ -16,10 +18,10 @@ import java.time.LocalDateTime;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Image {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id")
-    String imageId;
+    @GeneratedValue
+    @UuidGenerator
+    @Column(name = "image_id", columnDefinition = "BINARY(16)", nullable = false, updatable = false)
+    UUID imageId;
 
     @Column(name = "created_date")
     @CreationTimestamp
