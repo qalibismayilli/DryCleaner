@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface DryCleanerRepository extends JpaRepository<DryCleaner, String> {
 
@@ -18,7 +19,7 @@ public interface DryCleanerRepository extends JpaRepository<DryCleaner, String> 
             " dc.description = :description where dc.dryCleanerId = :dryCleanerId")
     @Modifying
     @Transactional
-    Optional<DryCleaner> updateDryCleaner(String name, String location, String description, String dryCleanerId);
+    Optional<DryCleaner> updateDryCleaner(String name, String location, String description, UUID dryCleanerId);
 
     Optional<List<DryCleaner>> findDryCleanersByDryCleanerName(String name);
 

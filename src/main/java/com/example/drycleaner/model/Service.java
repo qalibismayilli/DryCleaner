@@ -37,8 +37,8 @@ public class Service {
     @Enumerated(EnumType.STRING)
     String serviceName;
 
-    Integer price;
-    Integer discount;
+    Double price;
+    Double discount;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName = "dry_cleaner_id")

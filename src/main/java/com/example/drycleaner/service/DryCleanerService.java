@@ -5,7 +5,6 @@ import com.example.drycleaner.dto.service.response.ServiceResponseDto;
 import com.example.drycleaner.dto.dry_cleaner.request.DryCleanerRequestDto;
 import com.example.drycleaner.dto.dry_cleaner.response.DryCleanerResponseDto;
 import com.example.drycleaner.model.DryCleaner;
-import com.example.drycleaner.model.ServiceName;
 import com.example.drycleaner.repository.DryCleanerRepository;
 import com.example.drycleaner.service.user.UserService;
 import org.jetbrains.annotations.NotNull;
@@ -85,7 +84,7 @@ public class DryCleanerService {
                 findDryCleanersByDryCleanerName(dryCleanerName).orElseThrow().stream().map(x -> convertToResponse(x)).toList();
     }
 
-    public List<DryCleanerResponseDto> getDryCleanersByService(ServiceName serviceName){
+    public List<DryCleanerResponseDto> getDryCleanersByService(String serviceName){
         List<DryCleaner> dryCleaners = new ArrayList<>();
         serviceService.findServicesByName(serviceName).stream().map(s -> dryCleaners.add(s.getDryCleaner())).toList();
 
