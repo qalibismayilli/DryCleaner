@@ -67,13 +67,6 @@ public class SecurityConfig {
 
     }
 
-    //    this bean deactivate securityFilterChain for login
-//    @Bean
-//    public WebSecurityCustomizer webSecurityCustomizer(){
-//        return(web -> web.ignoring()
-//                .requestMatchers("/api/v1/auth/login"));
-//    }
-
     @Bean
     public WebMvcConfigurer corsConfigurer(){
         return new WebMvcConfigurer() {

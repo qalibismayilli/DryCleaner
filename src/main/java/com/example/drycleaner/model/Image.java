@@ -20,7 +20,7 @@ public class Image {
     @Id
     @GeneratedValue
     @UuidGenerator
-    @Column(name = "image_id", columnDefinition = "BINARY(16)", nullable = false, updatable = false)
+    @Column(name = "image_id", columnDefinition = "uuid", nullable = false, updatable = false)
     UUID imageId;
 
     @Column(name = "created_date")
@@ -37,4 +37,10 @@ public class Image {
     @ManyToOne
     @JoinColumn(referencedColumnName = "dry_cleaner_id")
     DryCleaner dryCleaner;
+
+    @Column(name = "is_active")
+    Integer isActive;
+
+    @Column(name = "is_deleted")
+    Boolean isDeleted;
 }

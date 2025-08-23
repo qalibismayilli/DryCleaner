@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface DryCleanerRepository extends JpaRepository<DryCleaner, String> {
+public interface DryCleanerRepository extends JpaRepository<DryCleaner, UUID> {
 
 
-    Optional<DryCleaner> findDryCleanerByDryCleanerId(String dryCleanerId);
+    Optional<DryCleaner> findDryCleanerByDryCleanerId(UUID dryCleanerId);
 
     @Query("update DryCleaner dc set dc.dryCleanerName = :name, dc.location = :location," +
             " dc.description = :description where dc.dryCleanerId = :dryCleanerId")

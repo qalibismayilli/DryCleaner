@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -60,14 +61,14 @@ public class DryCleanerService {
     }
 
     @Transactional
-    public DryCleanerResponseDto removeDryCleaner(String dryCleanerId){
+    public DryCleanerResponseDto removeDryCleaner(UUID dryCleanerId){
         DryCleaner dryCleaner = dryCleanerRepository.findById(dryCleanerId).orElseThrow();
         dryCleanerRepository.delete(dryCleaner);
         return convertToResponse(dryCleaner);
     }
 
     @Transactional
-    public DryCleanerResponseDto updateDryCleaner(@NotNull DryCleanerUpdateRequestDto request, String userId){
+    public DryCleanerResponseDto updateDryCleaner(@NotNull DryCleanerUpdateRequestDto request, UUID userId){
         //TODO: THIS userId CONFIGURATION IN AUTHORIZE
         DryCleaner fromDb = dryCleanerRepository.findDryCleanerByDryCleanerId(userId).orElseThrow();
         DryCleaner updatedDryCleaner = dryCleanerRepository.updateDryCleaner(request.getName(),

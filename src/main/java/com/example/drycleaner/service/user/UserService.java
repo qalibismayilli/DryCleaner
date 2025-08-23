@@ -10,6 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -21,7 +22,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public User getOriginalUserById(String userId){
+    public User getOriginalUserById(UUID userId){
         return userRepository.findById(userId).orElseThrow();
     }
 
@@ -45,7 +46,7 @@ public class UserService {
         return userRepository.findAll().stream().map(this::convertToResponse).toList();
     }
 
-    public UserResponseDto getUserById(String userId){
+    public UserResponseDto getUserById(UUID userId){
         return convertToResponse(userRepository.findById(userId).orElseThrow(()->new RuntimeException("User not found!")));
     }
 

@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -21,7 +22,7 @@ public class User {
     @Id
     @GeneratedValue
     @UuidGenerator
-    @Column(name = "user_id", nullable = false, updatable = false)
+    @Column(name = "user_id",columnDefinition = "uuid", nullable = false, updatable = false)
     UUID userId;
 
     @Column(name = "created_date")
@@ -47,4 +48,13 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     DryCleaner dryCleaner;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    List<DryCleaner> createdDryCleaners;
+
+    @Column(name = "is_active")
+    Integer isActive;
+
+    @Column(name = "is_deleted")
+    Boolean isDeleted;
 }

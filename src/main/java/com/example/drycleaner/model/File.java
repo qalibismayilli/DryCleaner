@@ -14,7 +14,7 @@ public class File {
     @Id
     @GeneratedValue
     @UuidGenerator
-    @Column(name = "file_id", columnDefinition = "BINARY(16)", nullable = false, updatable = false)
+    @Column(name = "file_id", columnDefinition = "uuid", nullable = false, updatable = false)
     String fileId;
 
 

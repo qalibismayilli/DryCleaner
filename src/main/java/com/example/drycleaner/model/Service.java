@@ -22,7 +22,7 @@ public class Service {
     @Id
     @GeneratedValue
     @UuidGenerator
-    @Column(name = "service_id")
+    @Column(name = "service_id",columnDefinition = "uuid", nullable = false, updatable = false)
     UUID serviceId;
 
     @Column(name = "created_date")
@@ -34,7 +34,6 @@ public class Service {
     LocalDateTime updatedDate;
 
     @Column(name = "service_name")
-    @Enumerated(EnumType.STRING)
     String serviceName;
 
     Double price;
@@ -43,4 +42,10 @@ public class Service {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(referencedColumnName = "dry_cleaner_id")
     DryCleaner dryCleaner;
+
+    @Column(name = "is_active")
+    Integer isActive;
+
+    @Column(name = "is_deleted")
+    Boolean isDeleted;
 }

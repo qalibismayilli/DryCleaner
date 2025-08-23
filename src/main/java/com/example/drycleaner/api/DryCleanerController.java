@@ -5,9 +5,11 @@ import com.example.drycleaner.dto.dry_cleaner.response.DryCleanerResponseDto;
 import com.example.drycleaner.service.DryCleanerService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/v1/dryCleaner")
+@RestController
+@RequestMapping("/v1/dryCleaner")
 public class DryCleanerController {
     private final DryCleanerService dryCleanerService;
 

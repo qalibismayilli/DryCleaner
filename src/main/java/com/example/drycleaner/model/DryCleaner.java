@@ -22,7 +22,7 @@ public class DryCleaner {
     @Id
     @GeneratedValue
     @UuidGenerator
-    @Column(name = "dry_cleaner_id", columnDefinition = "BINARY(16)", updatable = false, nullable = false)
+    @Column(name = "dry_cleaner_id", columnDefinition = "uuid", updatable = false, nullable = false)
     UUID dryCleanerId;
 
     @Column(name = "created_date")
@@ -46,6 +46,13 @@ public class DryCleaner {
     List<Image> images;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(referencedColumnName = "user_id")
+    Image logo;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "user_id",name = "user_id" , unique = true)
     User user;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(referencedColumnName = "user_id", name = "created_user_id")
+    User creatorUser;
 }
